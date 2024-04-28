@@ -48,7 +48,7 @@ public class EmployeeController {
 		String pass = credential.get(1);
 		Employee employee = employeeRepo.findByEmailAndPassword(mailId, pass);
 		if(employee == null)
-			throw new ResourceNotFoundException("No User registered");
+			throw new ResourceNotFoundException("No User registered :(");
 		else 
 			return employee;
 	}
