@@ -7,6 +7,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="employee")
@@ -16,12 +19,18 @@ public class Employee {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private long empId;
 
+@NotEmpty(message = "Employee name is required")
+@Size(min=1 , message = "Minimum Character should be more than 1")
 private String empName;  
 
+@NotEmpty(message = "Password is required")
 private String password;  
 
+@NotEmpty(message = "Role is required")
 private String role;  
 
+@NotEmpty(message = "Email is required")
+@Email(message = "Email should be valid")
 private String email;  
 
 
