@@ -58,6 +58,11 @@ public class EmployeeController {
 		return expenseDetailRepo.findByEmpId(empId);	
 	}
 	
+	@GetMapping("/employee/{empId}")
+	public Employee getemployee(@PathVariable("empId") long empId) {
+		return employeeRepo.findById(empId);
+	}
+	
 	@PostMapping("/postall")
 	public Expense postSignUp(@RequestBody Expense exp) {
 		expenseRepo.save(exp);
