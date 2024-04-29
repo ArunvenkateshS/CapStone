@@ -18,6 +18,8 @@ import com.example.capstone.repository.EmployeeRepository;
 import com.example.capstone.repository.ExpenseDetailReopsitory;
 import com.example.capstone.repository.ExpenseRepository;
 
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -64,7 +66,7 @@ public class EmployeeController {
 	}
 	
 	@PostMapping("/postall")
-	public Expense postSignUp(@RequestBody Expense exp) {
+	public Expense postSignUp(@Valid @RequestBody Expense exp) {
 		expenseRepo.save(exp);
 		return exp;
 	}
